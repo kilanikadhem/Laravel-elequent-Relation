@@ -15,7 +15,14 @@ class CreateBlogersTable extends Migration
     {
         Schema::create('blogers', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->integer('country_id')->unsigned();
+
             $table->timestamps();
+
+         //   $table->foreign('country_id')->references('id')->on('countries');
         });
     }
 
