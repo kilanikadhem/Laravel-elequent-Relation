@@ -28,6 +28,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function scopeName($query,$name){
+          echo $name;
+        return $query->where('name','like',"%".$name."%");
+    }
     public function phones(){
 
         return $this->hasOne(Phone::class);
